@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int N,Q;
+    cin>>N>>Q;
+    vector<int>S[N];
+    int lastAnswer=0;
+    int q,x,y;
+    while(Q--)
+    {
+
+        cin>>q>>x>>y;
+        if (q==1)
+        {
+            int seq=(x^lastAnswer)%N;
+            S[seq].push_back(y);
+        }
+        if(q==2)
+        {
+            int seq=(x^lastAnswer)%N;
+            lastAnswer=S[seq][y%S[seq].size()];
+            cout<<lastAnswer<<endl;
+        }
+    }
+
+
+
+    return 0;
+}
