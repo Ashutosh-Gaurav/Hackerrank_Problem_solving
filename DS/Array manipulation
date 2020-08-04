@@ -6,7 +6,7 @@ int main()
     int N,M,a,b,c;
     cin>>N>>M;
 
-long int arr[N+1]={};
+auto arr=new long int[N+1]();
 
 
 
@@ -32,3 +32,4 @@ for(int i=1;i<=N;i++)
 cout<<ans;
     return 0;
 }
+
