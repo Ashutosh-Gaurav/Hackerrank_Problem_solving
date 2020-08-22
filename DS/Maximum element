@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int N,x,t;
+    stack<int> s;
+    stack<int> c;
+    cin>>N;
+    while(N--)
+    {
+
+        cin>>t;
+        switch(t)
+        {
+        case 1:
+
+            cin>>x;
+            s.push(x);
+            if (c.empty())
+                c.push(x);
+            else
+                c.push(max(x,c.top()));
+            break;
+        case 2:
+            s.pop();
+            c.pop();
+            break;
+        case 3:
+            cout<<c.top()<<"\n";
+            break;
+        default:
+            break;
+        }
+    }
+    return 0;
+}
