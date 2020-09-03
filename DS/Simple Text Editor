@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int Q;
+    cin>>Q;
+    string s;
+    stack<string> stac;
+    while(Q--)
+    {
+        int t,k;
+        cin>>t;
+        switch(t)
+        {
+        case 1:
+            {
+                string W;
+                stac.push(s);
+                cin.ignore();
+                getline(cin,W);
+                s+=W;
+                break;
+            }
+        case 2:
+           {
+
+                cin>>k;
+                stac.push(s);
+                s.erase(s.size()-k);
+                break;
+           }
+        case 3:
+           {
+
+                cin>>k;
+                cout<<s[k-1]<<"\n";
+                break;
+           }
+        case 4:
+            {
+                s=stac.top();
+                stac.pop();
+                break;
+            }
+        }
+    }
+    return 0;
+}
