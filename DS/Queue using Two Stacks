@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int q;
+    stack<int> s1,s2;
+    cin>>q;
+    while(q--)
+    {
+        int type;
+        cin>>type;
+        if (type==1)
+            {
+                int x;
+                cin>>x;
+                s2.push(x);
+            }
+        else
+           {
+               if (s1.empty())
+               {
+                   while(!s2.empty())
+                   {
+                       s1.push(s2.top());
+                       s2.pop();
+                   }
+               }
+               if (!s1.empty())
+                {
+                    if (type==2)
+                        s1.pop();
+                    else if(type==3)
+                        cout<<s1.top()<<"\n";
+                }   
+           }
+    }
+    return 0;
+}
